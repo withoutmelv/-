@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title></title>
+<style type="text/css">
+body{
+margin: 0;
+padding: 0;
+background-color: #e6e6e6;
+}
+
+.container{
+width: 768px;
+margin: auto;
+padding: auto;
+background-color: #FFFFFF;
+}
+
+.head{
+height: 80px;
+}
+
+.nav{
+height: 45px;
+}
+
+.main{
+background-color: #00FF00;
+}
+
+.foot{
+width: 100%;
+height: 45px;
+background-color: #FF0000;
+z-index: 1;
+}
+
+
+.main .left{
+float: left;
+width: 200px;
+height: 600px;
+background-color: #E5EECC;
+}
+
+.main .right{
+float: left;
+width: 568px;
+height: 600px;
+background-color: #EFEFEF;
+}
+
+.clearboth{
+clear: both;
+height: 0px;
+}
+
+</style>
+<script type="text/javascript" src="js/jquery/jquery-1.9.1.min.js" ></script>
+<script type="text/javascript">
+window.onload=function(){
+var main=document.getElementById("main");
+main.onclick=function(){
+var mainStyle = main.currentStyle? main.currentStyle : window.getComputedStyle(main, null);//加入此方法便可解决
+var w1=mainStyle.width;
+alert(w1);
+}
+}
+</script>
+</head>
+<body>
+
+<div id="main" class="main">
+
+</div>
+</body>
+
+
+</html>

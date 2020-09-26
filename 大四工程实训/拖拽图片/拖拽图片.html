@@ -1,0 +1,54 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>百度换肤</title>
+		<style type="text/css">
+			#cen{
+				width: 70px;
+				overflow: hidden;
+			}
+			#outputfile{
+				height: 400px;
+				width: 400px;
+				background-color: rgba(0, 255, 255,0.5);
+				background-size: 100%;
+				background-repeat: no-repeat;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="outputfile">可以拖动图片来显示</div>
+		<div id="cen"><input type="file" name="" id="fileinput" value="" onchange="putfile(this.files)"/></div>
+		<script type="text/javascript">
+			
+			var dropBox=document.getElementById("outputfile");
+				dropBox.ondragenter=ingoreDrag;//在拖动的元素进入到放置目标时执行 
+				dropBox.ondragover=ingoreDrag;//在元素正在拖动到放置目标时触发
+			    dropBox.ondrop=drop;
+			function drop(e){
+				e.stopPropagation();//阻止事件传播
+				e.preventDefault();//阻止事件默认行为
+				var date=e.dataTransfer;//在进行拖放操作时，DataTransfer 对象用来保存，通过拖放动作，拖动到浏览器的数据。它可以保存一项或多项数据、一种或者多种数据类型
+				var files=date.files;//DataTransfer.files属性在拖动操作中表示文件列表。如果操作不包含文件，则此列表为空。
+				putfile(files);
+			}
+			function ingoreDrag(e){
+				//因为在处理拖放,所以要确保没有其他元素会取得这个事件
+				e.stopPropagation();//阻止事件传播
+				e.preventDefault();//阻止事件默认行为
+			}
+			
+			function putfile(files){
+				var file=files[0];//获取文件
+				var reader=new FileReader();
+				reader.onload=function(e){
+					dropBox.style.backgroundImage="url('"+e.target.result+"')";
+				}
+				reader.readAsDataURL(file);
+			}
+			
+		</script>
+	</body>
+</html>

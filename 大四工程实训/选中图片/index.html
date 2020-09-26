@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style>
+		.jjj{
+			color: rgb(12, 245, 24);
+		}
+	</style>
+	<link rel="stylesheet" type="text/css" href="main.css">
+</head>
+<body>
+<div style="display: flex;justify-content: space-around;flex-wrap: wrap;">
+	<div style="text-align: center">
+		<!-- 在每一幅图片前面加上打勾✔的图片（正确.png），并设置成绝对定位（position: absolute）可以让打勾图片和原图片重合，display:none表示隐藏打勾图片 -->
+		
+		<!-- onclick事件触发将打勾图片的display：none属性去掉，并记录当前图片的数据 -->
+		<img id="pic_right"  src="正确.png" width="50px" height="50px" style="position: absolute;display:none" >
+		<img class="boxshadow" src="testtou.jpg" width="200px" height="200px" onclick="showRight(this)" />
+		<div>
+			hahaha
+		</div>
+	</div>
+
+
+	<div style="text-align: center">
+		<img id="picright_1" class="hh" src="正确.png" width="50px" height="50px"  >
+		<img src="testtou.jpg" width="200px" height="200px" onclick="showRight(this)" />
+		<div class="jjj">
+			hahaha
+		</div>
+	</div>
+
+
+	<div style="text-align: center">
+		<img id="picright_2"  src="正确.png" width="50px" height="50px" style="position: absolute;display:none" >
+		<img src="testtou.jpg" width="200px" height="200px" onclick="showRight(this)" />
+		<div>
+			hahaha
+		</div>
+	</div>
+
+
+	<div style="text-align: center">
+		<img id="picright_3" src="正确.png" width="50px" height="50px" style="position: absolute;display: none;">
+		<img src="testtou.jpg" width="200px" height="200px" onclick="showRight(this)" />
+		<div>
+			hahaha
+		</div>
+	</div>
+
+
+	<div style="text-align: center">
+		<img id="picright_4" src="正确.png" width="50px" height="50px" style="position: absolute;display: none;">
+		<img src="testtou.jpg" width="200px" height="200px" onclick="showRight(this)" />
+		<div>
+			hahaha
+		</div>
+	</div>
+
+
+
+	<div style="text-align: center">
+		<img id="picright_5" src="正确.png" width="50px" height="50px" style="position: absolute;display: none;">
+		<img src="testtou.jpg" width="200px" height="200px" onclick="showRight(this)" />
+		<div>
+			hahaha
+		</div>
+	</div>
+
+
+	<div style="text-align: center">
+		<img id="picright_6" src="正确.png" width="50px" height="50px" style="position: absolute;display: none;">
+		<img src="testtou.jpg" width="200px" height="200px" onclick="showRight(this)" />
+		<div>
+			hahaha
+		</div>
+	</div>
+
+
+
+	<div style="text-align: center">
+		<img id="picright_7" src="正确.png" width="50px" height="50px" style="position: absolute;display: none;">
+		<img src="testtou.jpg" width="200px" height="200px" onclick="showRight(this)" />
+		<div>
+			hahaha
+		</div>
+	</div>
+
+
+
+	<div style="text-align: center">
+		<img id="picright_8" src="正确.png" width="50px" height="50px" style="position: absolute;display: none;">
+		<img src="testtou.jpg" width="200px" height="200px" onclick="showRight(this)" />
+		<div>
+			hahaha
+		</div>
+	</div>
+
+
+
+	<div style="text-align: center">
+		<img id="picright_9" src="正确.png" width="50px" height="50px" style="position: absolute;display: none;">
+		<img src="testtou.jpg" width="200px" height="200px" onclick="showRight(this)" />
+		<div>
+			hahaha
+		</div>
+	</div>
+
+
+
+	<div style="text-align: center">
+		<img id="picright_10" src="正确.png" width="50px" height="50px" style="position: absolute;display: none;">
+		<img src="testtou.jpg" width="200px" height="200px" onclick="showRight(this)" />
+		<div>
+			hahaha
+		</div>
+	</div>
+
+
+	<div style="text-align: center">
+		<img id="picright_11" src="正确.png" width="50px" height="50px" style="position: absolute;display: none;">
+		<img src="testtou.jpg" width="200px" height="200px" onclick="showRight(this)" />
+		<div>
+			hahaha
+		</div>
+	</div>
+
+
+	<div style="text-align: center">
+		<img id="picright_12" src="正确.png" width="50px" height="50px" style="position: absolute;display: none;">
+		<img src="testtou.jpg" width="200px" height="200px" onclick="showRight(this)" />
+		<div>
+			hahaha
+		</div>
+	</div>
+
+
+	<div style="text-align: center">
+		<img id="picright_13" src="正确.png" width="50px" height="50px" style="position: absolute;display: none;">
+		<img src="testtou.jpg" width="200px" height="200px" onclick="showRight(this)" />
+		<div>
+			hahaha
+		</div>
+	</div>
+</div>
+<form>
+	<button type="submit" onclick="handleBtnClick()">submit</button>
+</form>
+<script type="text/javascript">
+	var countPic={};//记录图片数据，全局变量记录每次的点击数据
+
+	function showRight(obj){
+		var picRight=obj.parentNode.children[0];
+		var getNumParent=obj.parentNode.parentNode.children;
+		var getNumArray=[];
+		for(let i=0;i<getNumParent.length;i++){
+			getNumArray[i]=getNumParent[i];
+		}
+		var getNum=getNumArray.indexOf(obj.parentNode);
+		var com= window.getComputedStyle(picRight, null);
+		if(com.display==="none"){
+			countPic[getNum]=picRight.src;
+			picRight.style.display="block";
+		}else{
+			// countPic[getNum]="";
+			delete countPic[getNum];
+			picRight.style.display="none";
+		}
+		//console.log(countPic);
+		
+	}
+
+
+
+	function handleBtnClick(){
+		//ajax请求将countpic传输
+	}
+</script>
+</body>
+</html>

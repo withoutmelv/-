@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href="main.css"/>
+    </head>
+<body>
+    <input onkeyup="changeInput()">
+    <br />
+    <ul id="searchList">
+       
+    </ul>
+    <ul id="showList">
+        <li>1234</li>
+        <li>5678</li>
+        <li>9234</li>
+    </ul>
+    <script>
+        var itemList=document.getElementById("showList");
+        var searchList=document.getElementById("searchList");
+        
+        function changeInput(e){
+            searchList.innerHTML="";
+            var theEvent = window.event || e;
+            var code = theEvent.keyCode || theEvent.which || theEvent.charCode;
+            if (code == 13) {
+                itemList.insertAdjacentHTML('beforeEnd',`<li onclick="deleteItem(this)">${theEvent.target.value}</li>`)
+                theEvent.target.value="";
+            }
+            var value=theEvent.target.value;
+            valArray=value.split('');
+            // console.log(valArray);
+            var searchArray=itemList.children;
+            // console.log(searchArray[1].innerText.split(""))
+            for(let j=0;j<searchArray.length;j++){
+                var ListArray=searchArray[j].innerText.split("");
+                var len=ListArray.length;
+                var index=0;
+                for(let k=0;k<len;k++){
+                    for(let i=0;i<valArray.length;i++){
+                        if(valArray[i]==ListArray[k]){
+                            ListArray.splice(k,0,"<b style='color:red;'>");
+                            ListArray.splice(k+2,0,"</b>");
+                            k+=2;
+                            len+=2;
+                            index=1;
+                        }
+                    }
+                }
+                if(index){
+                    searchList.insertAdjacentHTML('beforeEnd',`<li>${ListArray.join("")}</li>`);
+                }
+                
+            }
+        }
+
+
+        function deleteItem(obj){
+            obj.parentNode.removeChild(obj);
+        }
+    </script>
+</body>

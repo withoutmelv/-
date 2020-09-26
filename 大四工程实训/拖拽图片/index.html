@@ -1,0 +1,87 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+		</style>
+	</head>
+	<body>
+		<img  src="test.png" width="200px" height="200px" onmousedown="posMov(this)" />
+		<img  src="test2.png" width="200px" height="200px" onmousedown="posMov(this)" />
+		<div id="outputfile" style="background-color: red; width: 800px;height: 300px"></div>
+		<div id="outputfile2" style="background-color: blue; width: 800px;height: 300px"></div>
+		
+		<script type="text/javascript">
+			var dragImage;
+			var dropBox=document.getElementById("outputfile");
+				dropBox.ondragenter=ingoreDrag;//在拖动的元素进入到放置目标时执行 
+				dropBox.ondragover=ingoreDrag;//在元素正在拖动到放置目标时触发
+			    dropBox.ondrop=drop;
+
+			var dropBox2=document.getElementById("outputfile2");
+				dropBox2.ondragenter=ingoreDrag;//在拖动的元素进入到放置目标时执行 
+				dropBox2.ondragover=ingoreDrag;//在元素正在拖动到放置目标时触发
+			    dropBox2.ondrop=drop;
+
+
+			function MyDragStart(e){
+				var imgData=dragImage.src;
+				var trans=event.dataTransfer;
+				trans.setData('text',imgData);
+			}
+			function drop(e){
+				e.stopPropagation();//阻止事件传播
+				e.preventDefault();//阻止事件默认行为
+				var data=e.dataTransfer;//在进行拖放操作时，DataTransfer 对象用来保存，通过拖放动作，拖动到浏览器的数据。它可以保存一项或多项数据、一种或者多种数据类型
+				//console.log(e);
+				var dataimg=data.getData('text');
+				console.log(e.target.id);
+				console.log(dataimg);
+				dragImage.parentNode.removeChild(dragImage);//删除图片的Dom节点
+				data.clearData("text");//清理缓存的数据
+				
+			}
+			function ingoreDrag(e){
+				//因为在处理拖放,所以要确保没有其他元素会取得这个事件
+				e.stopPropagation();//阻止事件传播
+				e.preventDefault();//阻止事件默认行为
+			}
+			
+			
+			//图片跟随鼠标移动的函数
+			function posMov(obj){
+				obj.style.position="absolute";
+				//给指定的图片添加ondragstart事件
+				dragImage=obj;
+				dragImage.ondragstart=MyDragStart;
+				
+
+				//图片随鼠标移动
+				obj.onmousedown=function (ev) {
+					var oEvent = ev || event;
+					
+				    var sentX = oEvent.clientX - obj.offsetLeft;
+   					var sentY = oEvent.clientY - obj.offsetTop;
+				 
+				    document.onmousemove = function (ev){
+				    var oEvent = ev || event;
+				 
+				    var slideLeft = oEvent.clientX - sentX;
+				    var slideTop = oEvent.clientY - sentY;
+					obj.style.left = slideLeft + 'px';
+    				obj.style.top = slideTop + 'px';
+				};
+					document.onmouseup = function (){
+	   				document.onmousemove = null;
+	    			document.onmouseup = null;
+	   				}
+				} 
+
+
+			}
+
+		</script>
+	</body>
+</html>
