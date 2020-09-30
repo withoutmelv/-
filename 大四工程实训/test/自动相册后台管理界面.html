@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<!-- saved from url=(0032)http://120.76.61.249:10005/main/ -->
+<html style="height: auto; min-height: 100%;"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>自动相册后台管理界面</title>
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <link rel="stylesheet" href="./自动相册后台管理界面_files/bootstrap.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="./自动相册后台管理界面_files/font-awesome.min.css">
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="./自动相册后台管理界面_files/ionicons.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="./自动相册后台管理界面_files/AdminLTE.min.css">
+    <link rel="stylesheet" href="./自动相册后台管理界面_files/skin-blue.min.css">
+
+    <link rel="stylesheet" href="./自动相册后台管理界面_files/main.css">
+
+    <!-- Google Font -->
+    <link rel="stylesheet" href="./自动相册后台管理界面_files/css">
+
+</head>
+<body class="skin-blue sidebar-mini" style="height: auto; min-height: 100%;">
+<div class="wrapper" style="height: auto; min-height: 100%;">
+
+    <!-- Main Header -->
+    <header class="main-header">
+
+        <!-- Logo -->
+        <a href="http://120.76.61.249:10005/main" class="logo">
+            <!-- mini logo for sidebar mini 50x50 pixels -->
+            <span class="logo-mini">相册</span>
+            <!-- logo for regular state and mobile devices -->
+            <span class="logo-lg">自动相册</span>
+        </a>
+
+        <!-- Header Navbar -->
+        <nav class="navbar navbar-static-top" role="navigation">
+            <!-- Sidebar toggle button-->
+            <a href="http://120.76.61.249:10005/main/#" class="sidebar-toggle" data-toggle="push-menu" role="button">
+                <span class="sr-only">Toggle navigation</span>
+            </a>
+
+            <!-- Navbar Right Menu -->
+            <div class="navbar-custom-menu">
+                <ul class="nav navbar-nav">
+                    <!-- Messages: style can be found in dropdown.less-->
+                    <li class="dropdown messages-menu">
+                        <!-- Menu toggle button -->
+                        <a href="http://120.76.61.249:10005/main/#" class="dropdown-toggle" data-toggle="dropdown">
+                            <i class="fa fa-upload fa" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <!-- /.messages-menu -->
+                    <!-- Notifications Menu -->
+                    <li class="dropdown notifications-menu">
+                        <!-- Menu toggle button -->
+                        <a href="http://120.76.61.249:10005/main/#" class="dropdown-toggle" data-toggle="dropdown">
+                            <i class="fa fa-question-circle fa" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <!-- Tasks Menu -->
+                    <li class="dropdown tasks-menu">
+                        <!-- Menu Toggle Button -->
+                        <a href="http://120.76.61.249:10005/main/#" class="dropdown-toggle" data-toggle="dropdown">
+                            <i class="fa fa-cog fa" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <!-- User Account Menu -->
+                    
+                    <li class="dropdown user user-menu">
+                        <!-- Menu Toggle Button -->
+                        <a href="http://120.76.61.249:10005/main/#" class="dropdown-toggle" data-toggle="dropdown">
+                            <!-- hidden-xs hides the username on small devices so only the image appears. -->
+                            <span class="hidden-xs">test004</span>
+                        </a>
+                    </li>
+                    <li><a href="http://120.76.61.249:10005/login/logoutAccount/">登出</a></li>
+                    
+                    <!-- Control Sidebar Toggle Button -->
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <!-- Left side column. contains the logo and sidebar -->
+    <aside class="main-sidebar">
+
+        <!-- sidebar: style can be found in sidebar.less -->
+        <section class="sidebar">
+
+            <!-- search form (Optional) -->
+            <form action="http://120.76.61.249:10005/main/#" method="get" class="sidebar-form">
+                <div class="input-group">
+                    <input type="text" name="q" class="form-control" placeholder="Search">
+                    <span class="input-group-btn">
+              <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
+              </button>
+          </span>
+                </div>
+            </form>
+            <!-- /.search form -->
+
+            <!-- Sidebar Menu -->
+            <ul class="sidebar-menu tree" data-widget="tree">
+                <li class="header">HEADER</li>
+                <!-- Optionally, you can add icons to the links -->
+                <li>
+                    <a href="http://120.76.61.249:10005/main">
+                        <i class="fa fa-link"></i> <span>照片</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="http://120.76.61.249:10005/main">
+                        <i class="fa fa-link"></i> <span>分类</span>
+                    </a>
+                </li>
+            </ul>
+            <!-- /.sidebar-menu -->
+        </section>
+        <!-- /.sidebar -->
+    </aside>
+
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper" style="min-height: 659px;">
+
+        <!-- Main content -->
+        <section class="content container-fluid" style="padding: 0 0" >
+        	<div style="width: 100%;height: 100%">
+        	<img src="./background4.jpg" width="100%" height="100%" style="">
+        </div>
+
+
+        	<div>
+        		
+        	</div>
+
+
+
+
+
+
+
+
+
+            <div class="btn-upload">
+                <input type="file" id="input_pic" accept="image/*" style="display:none;">
+                <input type="file" id="input_dir" style="display:none;" webkitdirectory="">
+                <div style="display: flex;justify-content: space-around;">
+                	<div style="text-align: center;">
+	                	<img  id="upload_pic" src="照片.png" width="90px" height="90px" >
+	                	<div>上传图片</div>
+	            	</div>
+	            	<div style="text-align: center;">
+	                	<img  id="upload_dir" src="文件夹.png" width="90px" height="90px" >
+	                	<div>上传文件夹</div>
+	            	</div>
+            	</div>
+            	<div style="display: flex;justify-content: space-around;margin-top: 50px;">
+            		<div style="text-align: center;">
+						<img  id="check_all" src="选中.png" width="90px" height="90px" >
+						<div>选中所有</div>
+					</div>
+					<div style="text-align: center;">
+						<img  id="save_checked" src="保存.png" width="90px" height="90px" >
+						<div>保存选中</div>
+					</div>
+				</div>
+                <div id="upload-msg"></div>
+            </div>
+            <div class="main-container" id="main-container">
+
+                <!-- <div class="classify">
+                    <h1 class="classify-title">test</h1>
+                    <div class="image-container">
+                        <div class="image-item" onclick="checkImage(this)" >
+                        	<img class="pic-checked" src="/static/img/checked.png" style="display: none;">
+                        	<img src="/static/tmp/beach.jpg" alt="">
+                        </div>
+                    </div>
+                </div> -->
+
+            </div>
+        </section>
+        <!-- /.content -->
+    </div>
+    <!-- /.content-wrapper -->
+
+    <!-- Main Footer -->
+    <footer class="main-footer" style="padding-top:0px;padding-bottom:0px; ">
+        <div style="display: flex;justify-content: space-around;">
+        	<div style="text-align: center;">
+        		<img src="首页.png" width="50px" height="50px" style="margin-top: 5px">
+        		<div>首页</div>
+        	</div>
+
+        	<div style="text-align: center;">
+        		<img src="相册.png" width="50px" height="50px" style="margin-top: 5px">
+        		<div>相册</div>
+        	</div>
+
+        	<div style="text-align: center;background-color: black;" >
+        		<img src="相机.png" width="80px" height="80px">
+        	</div>
+
+        	<div style="text-align: center;">
+        		<img src="发现.png" width="50px" height="50px" style="margin-top: 5px">
+        		<div>发现</div>
+        	</div>
+
+        	<div style="text-align: center;">
+        		<img src="更多.png" width="50px" height="50px" style="margin-top: 5px">
+        		<div>更多</div>
+        	</div>
+
+        </div>
+    </footer>
+</div>
+
+<!-- jQuery 3 -->
+<script src="./自动相册后台管理界面_files/jquery.min.js.下载"></script>
+<!-- Bootstrap 3.3.7 -->
+<script src="./自动相册后台管理界面_files/bootstrap.min.js.下载"></script>
+<!-- AdminLTE App -->
+<script src="./自动相册后台管理界面_files/adminlte.min.js.下载"></script>
+
+<script type="text/javascript">
+	document.getElementById("upload_pic").addEventListener("click", e => {
+		document.getElementById("input_pic").click() ;
+	})
+
+	document.getElementById("upload_dir").addEventListener("click", e => {
+		document.getElementById("input_dir").click() ;
+	})
+
+	document.getElementById("input_pic").addEventListener("change", e => {
+		var files = e.target.files;
+		var re = new FileReader();
+		re.readAsDataURL(files[0]);
+		re.onload = function(re){
+			console.log("read image success => " + getObjectURL(files[0])) ;
+			var image = re.target.result ;
+			document.getElementById("upload-msg").innerHTML = "正在上传图片"
+			classifyImage(image) ;
+			document.getElementById("upload-msg").innerHTML = "上传完成"
+		}
+	})
+
+	document.getElementById("input_dir").addEventListener("change", e => {
+		var files = e.target.files;
+		var count = files.length ;
+		var index = 1 ;
+		for(var file of files){
+			var re = new FileReader();
+			re.readAsDataURL(file);
+			re.onload = function(re){
+				console.log("read image success => " + getObjectURL(file)) ;
+				var image = re.target.result ;
+				classifyImage(image) ;
+				document.getElementById("upload-msg")
+					.innerHTML = `正在上传图片 ${index} / ${count}` ;
+				index++ ;
+				if(index > count){
+					document.getElementById("upload-msg").innerHTML = `上传完成` ;
+				}
+			}
+		}
+	})
+
+	function classifyImage(image){
+		$.ajax({
+			url: "/main/classify/",
+			type: "POST",
+			data: {
+				image: JSON.stringify(image),
+				csrfmiddlewaretoken: `3ucgG3aovQA2ve5Ieu4M1MYWvKN1phklNyqDGiWXeK4QLDh2aQBRuYM0uwdl0cP0`
+			},
+			success: result => {
+				typeName = JSON.parse(result) ;
+				console.log("receive: " + typeName) ;
+				showLabelInFront(image, typeName) ;
+			}
+		})
+	}
+
+	function showLabelInFront(image, typeName){
+		var main_container = document.getElementById("main-container") ;
+		var classifies = document.querySelectorAll(".classify") ;
+
+		var isClassify = false ;
+
+		for(var classify of classifies){
+			var classifyTitle = classify.querySelector(".classify-title").innerHTML ;
+
+			if(typeName == classifyTitle){
+				classify.querySelector(".image-container").innerHTML += `
+					<div class="image-item" onclick="checkImage(this)">
+						<img class="pic-checked" src="/static/img/checked.png" style="display: none;">
+						<img src=${image} alt="">
+					</div>
+				` ;
+				isClassify = true ;
+				break ;
+			}
+		}
+
+		if(!isClassify){
+			main_container.innerHTML += `
+				<div class="classify">
+					<h1 class="classify-title">${typeName}</h1>
+					<div class="image-container">
+						<div class="image-item" onclick="checkImage(this)">
+							<img class="pic-checked" src="/static/img/checked.png" style="display: none;">
+							<img src="${image}" alt="">
+						</div>
+					</div>
+				</div>
+			` ;
+		}
+	}
+
+	function getObjectURL(file) {
+		var url = null ;
+		if (window.createObjectURL!=undefined) { // basic
+			url = window.createObjectURL(file) ;
+		} else if (window.URL!=undefined) { // mozilla(firefox)
+			url = window.URL.createObjectURL(file) ;
+		} else if (window.webkitURL!=undefined) { // webkit or chrome
+			url = window.webkitURL.createObjectURL(file) ;
+		}
+		return url ;
+	}
+
+	document.getElementById("save_checked").addEventListener("click", e => {
+		var isZero = true ;
+		var classifies = document.querySelectorAll(".classify") ;
+		for(var classify of classifies){
+			var typeName = classify.querySelector(".classify-title").innerHTML ;
+			var imageItems = classify.querySelectorAll(".image-item") ;
+			for(var imageItem of imageItems){
+				var images = imageItem.querySelectorAll("img") ;
+				if(images[0].style.display == "block"){
+					isZero = false ;
+					image = images[1].getAttribute("src") ;
+					// console.log(typeName, images[1].getAttribute("src")) ;
+
+					$.ajax({
+						url: "/main/saveImage/",
+						type: "POST",
+						async: false,
+						data: {
+							typeName: typeName,
+							image: JSON.stringify(image),
+							csrfmiddlewaretoken: `3ucgG3aovQA2ve5Ieu4M1MYWvKN1phklNyqDGiWXeK4QLDh2aQBRuYM0uwdl0cP0`
+						},
+						success: result => {
+							// typeName = JSON.parse(result) ;
+							// console.log("receive: " + typeName) ;
+							// showLabelInFront(image, typeName) ;
+						}
+					})
+				}
+			}
+		}
+		if(isZero){
+			alert("选中数量图片为0") ;
+		}
+	})
+
+	function checkImage(obj){
+		var pic_checked = obj.querySelector(".pic-checked") ;
+		if(pic_checked.style.display == "none"){
+			pic_checked.style.display = "block" ;
+		}else{
+			pic_checked.style.display = "none" ;
+		}
+	}
+
+	var checkAll = false ;
+	document.getElementById("check_all").addEventListener("click", e => {
+		var pic_checked = document.querySelectorAll(".pic-checked") ;
+		checkAll = !checkAll ;
+		for(var checked of pic_checked){
+			if(checkAll){
+				checked.style.display = "block" ;
+			}else{
+				checked.style.display = "none" ;
+			}
+		}
+		if(checkAll){
+			document.getElementById("check_all").innerHTML = "取消全选" ;
+		}else{
+			document.getElementById("check_all").innerHTML = "选中所有" ;
+		}
+	})
+</script>
+
+<div id="color-picker-wrap" style="display: none; position: fixed; top: 0px; left: 0px; z-index: 9999;"><!----></div></body></html>
