@@ -20,3 +20,47 @@
 2. js new关键字干了什么，实现模拟new关键字。
 3. JS基本类型和引用类型
 
+#### 9月30日
+
+1. leetcode：搜索二叉树的定义--------
+   - 若是一个节点有左子树，那么左子树上所有节点的值小于该根节点
+   - 若是一个节点上有右子树，那么右子树上所有节点的值大于该根节点
+   - 它的左右子树也为二叉搜索树
+   
+2. 立即执行函数`(function(x){})(i)//i是接收传给x的参数`
+
+   ```javascript
+   for(var i=0;i<10;i++){
+   	(function(x){
+   		setTimeout(function(){
+   			console.log(x++);
+   		},1000)
+   	})(i);
+   }
+   ```
+
+
+3. JS传递参数，传递的是数据的值而非按引用传递的
+
+   ```javascript
+   function setName(obj){
+       obj.name="lvyi";
+   }
+   var person=new Object();
+   setName(person);
+   alert(person.name);//lvyi
+   ```
+
+   ```javascript
+   function setName(obj){//传入的是值而非引用
+       obj.name="lvyi";
+       obj=new Object();//局部变量，在函数执行完后自动销毁
+       obj.name="sb";
+   }
+   var person=new Object();
+   setName(person);
+   alert(person.name);//lvyi||如果是传入引用的话，此处值应该为sb
+   ```
+
+   
+
