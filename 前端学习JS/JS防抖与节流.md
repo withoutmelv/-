@@ -121,7 +121,7 @@ function debounce(func, wait, immediate) {
         if (callNow) func.apply(context, args);
       } else {
         timer  = setTimeout(() => {
-          func.apply
+          func.apply(context,args);
         }, wait)
       }
     }
@@ -253,3 +253,4 @@ content.onmousemove = function() {
 　　最后，匿名函数内部的` func `的调用方式如果是最普通的直接执行  `func() `，那么 `func` 内部的 this 必然指向 window ，虽然在代码简单的情况下看不出什么异常（结果表现和正常一样），但是这将会是一个隐藏 bug，不得不注意啊！所以，我们通过匿名函数捕获 this，然后通过 `func.apply()` 的方式，来达到` content.onmousemove = func `这样的效果。
 
 可以说，高阶函数内部都要注意 this 的绑定。
+
