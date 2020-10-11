@@ -1,0 +1,12 @@
+.box{
+    background-color: greenyellow;
+    font-size: x-large;
+}
+
+.img{
+    background: url('../1.jpg');
+    width: 200px;
+    height: 200px;
+    background-size: cover;
+    background-position: center;
+}

@@ -1,0 +1,68 @@
+8月31日
+介绍React的大纲
+React介绍以及环境搭建
+
+9月1到9月4日
+完成Todolist代办列表功能
+
+9月5日
+1. 安装React developer tools
+2. PropTypes设置规定props变量的类型
+    DefaultProps设置默认值
+3. props，state与render函数
+    1）每当props与state的变量发生改变时，render函数就会刷新。
+    2）当父组件的render函数被运行时，子组件的render函数也会运行
+4. 生命周期函数是指在某一时刻组件会自动调用执行的函数，render函数属于生命周期函数
+	constructor不属于生命周期函数
+5. Initialization：setup props and state
+	
+    Mounting: componentWillMount--->render---->componentDidMount
+
+    Updation: props:    componentWillReceiveProps---->shouldComponentUpdate---->componentWilllUpdate--->render--->componentDidUpdate
+
+	     state:      shouldComponentUpdate---->componentWillUpdate---->render---->componentDidUpdate
+
+    Unmounting:      componentWillUnmount
+
+生命周期函数是针对组件而言的，每个组件都有自己的生命周期函数
+
+6. 组件的render被执行的原因
+ 1）组件的props或者state数据发生变化
+ 2）父组件的render被执行，子组件的render也执行
+
+7. shouldComponentUpdate减少子组件render被无效调用的次数，提高效率
+
+9月6日
+1. 了解react-transition-group中CssTransition的使用
+2. CssTransition 针对单个dom节点,若是多个DOM需要使用Transition-group包裹最外围标签，内层的单个DOM用
+	Csstransition包裹而且不需要in属性。
+3. CssTransition组件的属性: 
+	in：判断动画的enter和exit
+	timeout：动画的执行时间
+	className：动画css样式的类名
+	unmountOnExit：在动画exit结束后移除DOM节点
+	onEntered：钩子函数，在某个时间自动执行
+	appear：页面刷新后是否执行动画
+
+
+9月7日
+初步了解redux的数据流过程
+react component----(action)----->action creators---(dispatch(action))---->store---(prevstate,action)--->reducer-----(new state)----->store------->react component
+1. antd 开发react类似boostrap的效果，可以直接引用美化过后的组件
+2. store=====>createStore()
+	store.dispatch();
+	store.getState();
+	store.subscribe();
+3. reducer======>(prevState,action)=>({return newState})
+4. 使用redux后，数据的变更都应该集中在store中处理，而不是在react组件里面处理。
+5. reducer 可以接收state,但是绝不能修改state，因此要进行深拷贝对拷贝后的变量进行修改。
+6. actionTypes和actionCreator集中处理action的type以及action
+
+redux总结
+7. store必须是唯一的
+8. 只有store才能改变自己的内容（数据不是reducer改变的，而是store改变的。）
+	reducer只是生成一个新的数据并返回给store，新的数据传送到store中，由store来修改数据。
+9. reducer必须是纯函数
+	纯函数：给定固定的而输入，就一定会有固定的输出，而且不会由任何副作用。
+	不能有异步操作，不能有时间操作。对传入的参数进行修改（副作用）
+

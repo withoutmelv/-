@@ -1,0 +1,54 @@
+react父子组件的数据流传输：一个子组件能否对应多个父组件？
+
+6.15
+组件的拆分以及组件之间的传值（变量、方法）还有方法的bind绑定
+React组件之间的树形结构
+代码优化：析构赋值，构造函数里面绑定函数
+异步的setstate
+es6对象字面量简写（键值对名称一样）
+
+6.16
+React声明式开发
+父组件通过属性向子组件传值，子组件通过父组件的方法来改变父组件的值
+React可以和其他框架并存例如：Jquery等
+单向数据流：父组件向子组件传递的值不能被子组件更改
+因为树形结构里一个父组件可以对应多个子组件，若是某一个子组件更改了父组件的值，
+那么其他子组件对应的值也会发生变化，这样的话出Bug之后很难排查出是哪个子组件出了问题。
+子组件实在要更改父组件的值要通过调用父组件的方法进行
+
+6.18
+当组件里的state或者props发生变化时，组件里的render函数会自动调用
+父组件的render函数调用时子组件的render函数也会被调用
+
+虚拟DOM 
+React设计原理
+1.state数据
+2.JSX模板
+<div id='abc'><span>hello world</span></div>
+3.数据+模板 生成虚拟DOM（虚拟DOM就是一个JS对象）
+['div',{id:'abc'},['span',{},'hello world']]
+4.用虚拟DOM的结构生成真实的DOM
+5.state发生变化
+6.数据+模板 生成新的虚拟DOM（极大的提升性能）
+7.比对原始虚拟DOM和新的虚拟DOM的区别
+8.直接操作DOM
+
+6.19
+虚拟DOM
+JSX->createElement->虚拟DOM（JS对象）->真实的DOM
+虚拟DOM的优点：
+1.性能提升
+2.它使得跨端应用得以实现。
+[React Native(移动端):虚拟DOM转换成原生组件而不是DOM]
+
+Diff算法 虚拟DOM的比对方法
+
+
+6.20
+React的生命周期函数
+在某一时刻组件会自动调用限执行的函数（render）construcutor不归类为生命周期函数
+
+Initialization: 设置props和state
+
+	在组件即将被挂载到页面上 -> 页面渲染 -> 组件被挂在到页面之后
+Mounting: componentWillMount -> render -> componentDidMount
