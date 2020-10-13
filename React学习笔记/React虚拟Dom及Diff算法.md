@@ -127,18 +127,18 @@
 
 两个虚拟DOM之间的比对算法difference
 
-![Diff比对](C:\Users\lenovo\Desktop\React学习笔记\Diff比对.png)
+![Diff比对](C:\Users\lenovo\Desktop\文档\React学习笔记\Diff比对.png)
 
 比对方式：同级比对，当同一级的两个节点不相同时，直接将该节点以及其子节点全部删除，使用新的虚拟DOM对应的节点。
 
 #### setState设计成异步的原因
 
-![setState异步](C:\Users\lenovo\Desktop\React学习笔记\setState异步.png)
+![setState异步](C:\Users\lenovo\Desktop\文档\React学习笔记\setState异步.png)
 
 当多次的setState间隔时间较短时，React会将三次setState合并成一次setState,只做一次虚拟DOM的比对,提高React底层的性能.
 
 #### 虚拟DOM比对
 
-![虚拟DOM比对](C:\Users\lenovo\Desktop\React学习笔记\虚拟DOM比对.png)
+![虚拟DOM比对](C:\Users\lenovo\Desktop\文档\React学习笔记\虚拟DOM比对.png)
 
 给每个DOM节点设置keys,当有新的DOM节点加入时,两个DOM可以根据keys来进行比对,这样大大提高了比对的效率.

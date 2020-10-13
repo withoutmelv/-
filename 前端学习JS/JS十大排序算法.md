@@ -248,7 +248,7 @@ function insertionSort(array) {
                 j--;
             }
             array[j + 1] = key;
-        }
+        }    
         console.timeEnd('插入排序耗时：');
         return array;
     } else {
