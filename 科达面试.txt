@@ -1,0 +1,8 @@
+初面
+1. H5新特性
+2. cookie localstorage sessionstorage cookie重点 结合跨域
+3. reflow repaint
+4. 布局： flex 浮动：高度塌陷，清除浮动
+5. React生命周期函数
+6. Typeof和Instanceof    typeof用于判断基本类型，instanceof 用于判断对象类型。
+7. getComputeStyle

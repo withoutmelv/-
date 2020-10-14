@@ -1,7 +1,12 @@
 1.跨域的实现方式
 2.cookie localStorage sessionStroage的区别
 3.用setTimeout实现setInteval
-
+function test(time){
+	setTimeout(test(time),time);
+}
+for(){
+	setTimeoue();
+}
 
 5、熟悉NodeJS，熟练使用Grunt、Gulp、Webpack等构建工具；
 6、具备MVVM框架开发经验，如React、VueJS、AngularJS等；
