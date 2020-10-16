@@ -1,5 +1,5 @@
-1. bootstrap 栅格系统 以及自适应如何实现的
-2. 事件委托
+1. bootstrap 栅格系统 以及自适应如何实现的scaffolding.less Normalize.css
+2. 事件委托，事件冒泡
 3. 事件循环机制 宏任务有哪些，微任务有哪些
 4. 说一说electron的一些东西
 5. 纯函数
@@ -10,3 +10,20 @@
 10. 讲一下对闭包的理解
 11.讲一下MVVM模型
 12.VUE双向数据绑定
+
+
+
+初面
+1. H5新特性
+2. cookie localstorage sessionstorage cookie重点 结合跨域
+3. reflow repaint
+4. 布局： flex 浮动：高度塌陷，清除浮动
+5. React生命周期函数
+6. Typeof和Instanceof    typeof用于判断基本类型，instanceof 用于判断对象类型。
+7. getComputeStyle
+
+
+远光
+sass
+jquery
+vue
