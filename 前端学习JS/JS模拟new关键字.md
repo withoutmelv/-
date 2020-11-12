@@ -61,8 +61,8 @@ const child = new Parent();
 // ES5构造函数
 let Parent = function (name, age) {
     let that = this;
-    that.name = name;
-    that.age = age;
+    that.name = name;//不应该是this.name=name吗？我不是傻逼
+    that.age = age;//this.age=age
     return that;
 };
 const child = new Parent('听风是风', '26');

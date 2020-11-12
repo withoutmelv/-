@@ -292,8 +292,6 @@ window.onload = function(){
 
 那我们现在就再现一下他给的场景
 
-[![复制代码](https://common.cnblogs.com/images/copycode.gif)](javascript:void(0);)
-
 ```html
 　　<ul id="test">
         <li>

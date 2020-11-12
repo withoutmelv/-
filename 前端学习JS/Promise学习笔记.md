@@ -68,7 +68,7 @@ $(function(){
 #### 回调有四个问题（陷入回调地狱）
 
 - 嵌套层次很深，难以维护
-- 无法正常使用return和throw
+- 无法正常使用return和throw，因为回调函数与主体函数不在同一个堆栈中
 - 无法正常检索堆栈信息
 - 多个回调之间难以建立联系，一个回调一旦开始启动就再也没有办法对它进行操作了
 
@@ -142,15 +142,86 @@ console.log('script end');
 
 
 
+
+
+### .then()方法
+
+.then方法里如果<mark>**不显式返回一个Promise**</mark> .then方法会默认返回一个空的Promise，会等待显式返回的Promise完成。例子：timeout3.js(everything 搜索)
+
+
+
+- .then()接收两个函数作为参数,分别代表fulfilled和rejected
+- .then()<mark>**默认返回一个新的Promise实例**</mark>，所以它可以链式调用
+- 当前面的Promise状态改变时，.then()才能根据其状态，选择特定的状态响应函数
+- 状态响应函数可以返回新的Promise或者其他值
+  - 如果没有显式返回，则默认返回的状态为fulfilled,值为undefined的Promise
+  - <img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20201110091303921.png" alt="image-20201110091303921" style="zoom:80%;" />
+  - 如果返回的是其他值，则返回的状态为fulfilled,值为对应返回值的Promise
+  - <img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20201110091940883.png" alt="image-20201110091940883" style="zoom: 80%;" />
+- 如果返回新的Promise,那么下一级的.then()会在新的Promise状态发生改变之后执行
+- 如果返回其他任何值或者没有显示返回值，则会立即执行下一级的.then()，因为返回的Promise状态为fulfilled
+
+
+
+### .then的层次嵌套改为链式调用
+
+​	nested-then.js
+
+
+
+## 问题：下面四种Promise的区别
+
+```js
+//doSomething和doSomethingElse都是返回Promise实例的函数
+//#1
+doSomething().then(function () {
+    return doSomethingElse();
+})
+.then(finalHandler)
+
+//#2
+doSomething().then(function () {
+    doSomethingElse();
+})
+.then(finalHandler)
+
+//#3
+doSomething().then(doSomethingElse())
+.then(finalHandler)
+
+//#4
+doSomething().then(doSomethingElse)
+.then(finalHandler)
+```
+
+问题一：
+
+​	<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20201110095753857.png" alt="image-20201110095753857" style="zoom:33%;" />
+
+问题二：
+
+​	<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20201110095813639.png" alt="image-20201110095813639" style="zoom:33%;" />
+
+问题三：
+
+​	<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20201110095842583.png" alt="image-20201110095842583" style="zoom:33%;" />
+
+问题四：
+
+​	<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20201110095900107.png" alt="image-20201110095900107" style="zoom:33%;" />
+
+​	
+
 ### 错误处理的两种做法
 
 - `reject('错误信息').then(null,message=>{})`
 - `throw new Error('错误信息').catch(message=>{})`
-- 推荐使用第二种，更加清晰好读，可以捕获前面的错误。比如：Promise里面没出现错误，但是进入到reslove之后出现错误，使用第二种方法，catch还能捕获到。
+- 推荐使用第二种，更加清晰好读，可以捕获前面的错误。比如：Promise里面没出现错误，但是进入到then之后出现错误，使用第二种方法，catch还能捕获到。
 
-catch返回的也是Promise对象且默认状态为fulfilled,若是出现`throw new Error`那么Promise状态变为rejected
+注意：catch和then连用
 
-建议在所有队列最后都加上`.catch()`，以避免漏掉错误处理造成意想不到的问题
+- catch返回的也是Promise对象且默认状态为fulfilled,若是出现`throw new Error`那么Promise状态变为rejected
+- 建议在所有队列最后都加上`.catch()`，以避免漏掉错误处理造成意想不到的问题
 
 
 

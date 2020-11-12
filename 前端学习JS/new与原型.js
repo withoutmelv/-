@@ -8,6 +8,7 @@ function Person(name,age) {
 }
 Person.prototype.hello="123"
 var person = new Person("lvyi",21);
+// console.log(Person.prototype.__proto__)
 // console.log(Object.getPrototypeOf(person))
 // console.log(Person.prototype)
 // console.log(Object.create(Person.prototype))
@@ -20,6 +21,7 @@ var newMethod=(className,...arguments)=>{
 }
 
 const child=newMethod(Person,"lvx","18");
+// console.log(child.name)
 // console.log(child instanceof Person)
 // console.log(child)
 // console.log(Object.create(Person.prototype).__proto__)

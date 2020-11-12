@@ -62,6 +62,20 @@
    这一步多损耗了性能但是代价很小
    
    ['div',{id:'abc'},['span',{},'hello world']]
+   虚拟DOM
+   vnode={
+       type:'div',
+       key:null,
+       props:{
+           id:'abc',
+           children:[{
+               type:'span',
+               props:{
+                   TextNode:'hello world'
+               }
+           }]
+       } 
+   }
    
    数组第一项表示DOM节点的标签名
    
