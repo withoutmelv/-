@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <div>2232</div>
+        {{message}}
+        <div>{{message}}</div>
+    </div>
+    <script>
+        //数据驱动；数据变更之后自动更改DOM
+        //1.数据初次渲染到视图；2.数据响应式===》数据劫持+观察者模式（发布订阅）
+        let vm=new Vue({
+            el:'#app',
+            data:{
+                message:'测试数据'
+            }
+        })
+
+        setTimeout(()=>{
+            console.log(vm);
+            //message直接挂在vm上//数据代理
+            vm.message='修改的数据'
+        },1000)
+    </script>
+</body>
+</html>

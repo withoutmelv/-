@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <!-- <div>2232</div>
+        {{ message}}
+        <div>{{message}}</div> -->
+        <!-- <input type="text" v-model="message" />{{message}} -->
+        <div v-html="message"></div>
+    </div>
+    <script src="./myvuev-model.js"></script>
+    <!-- <script src="./myvue.js"></script> -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script> -->
+    <script>
+        let vm=new Vue({
+            el:'#app',
+            data:{
+                message:'<mark>测试数据</mark>'
+            }
+        })
+
+        // setTimeout(()=>{
+        //     //defineProperty之后直接修改值要经过set处理
+        //     //如果set函数中没有将新的值赋给旧值，那么变量的值将无法修改
+        //     vm.$data.message='修改后的数据';
+        //     console.log(vm.$data.message);
+        // },1000)
+    </script>
+</body>
+</html>

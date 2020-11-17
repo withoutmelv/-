@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title Document
+        style.
+            .mydiv{
+                width:200px;
+                height:200px;
+                background:red;
+            }
+    body
+        //用缩进表示层级关系
+        h1 我是标题
+        div 我是div
+        div(class="mydiv") 我是类名为mydiv的div
+            span 我是span
+        .mydiv2(style={width:"200px",height:"200px",background:"green"}) 我是类名为mydiv2的div
+        #myid 我是id名为myid的div
+        span.jud 我是类名为jud的span
+        //- 这是pug的注释
+        // 这是html的注释
+        //
+            多行注释
+
+        //- 
+            多行注释
+
+        //|符号是转义符号，可以实现换行写div内容
+        div
+            |hello
+        - let str ='你好'
+        p #{str}
+        p #{data}
+        ul
+            each item,index in users
+                li 姓名是：#{item.name};年龄是：#{item.age};身高是：#{item.height};索引是：#{index}
+
+        - for(let i=0;i<4;i++)
+            span 我是循环#{i}
+
+        - let num=1
+            case num
+                when 1
+                    p num是1
+                when 2
+                    p num是2
+                default
+                    p num是default
+        mixin mydiv
+            div 我是mixdiv
+                span helloworld
+        +mydiv
+        +mydiv
+        +mydiv
+
+        mixin pet(name,sex)
+            p 这是一只#{name};ta的性别是#{sex}
+        +pet('狗','公')
+        +pet('猫','母')
+        include common.pug
+        script(type="text/javascript").
+            console.log(1111);
