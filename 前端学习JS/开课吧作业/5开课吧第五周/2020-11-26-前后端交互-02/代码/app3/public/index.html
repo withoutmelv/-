@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div id="login">
+        <p>
+            用户名：<input type="text" id="username">
+        </p>
+        <p>
+            密码：<input type="password" id="password">
+        </p>
+        <p>
+            <button id="loginBtn">登录</button>
+        </p>
+    </div>
+
+    <hr />
+
+    <button id="getDataBtn">获取数据</button>
+    <div id="content">
+
+    </div>
+
+    <script>
+        let loginBtnElement = document.querySelector('#loginBtn');
+        let getDataBtnElement = document.querySelector('#getDataBtn');
+        let contentElement = document.querySelector('#content');
+        let authorizationData = '';
+
+        let userLoginInfo = {
+            username: 'zMouse',
+            password: '123'
+        }
+
+        loginBtnElement.onclick = function () {
+
+            let xhr = new XMLHttpRequest();
+
+            xhr.open('post', '/login', true);
+
+            xhr.onload = function () {
+                authorizationData = xhr.getResponseHeader('Authorization');
+                // console.log('authorizationData', authorizationData);
+
+                let userInfo = {};
+
+                if (authorizationData) {
+                    // userInfo = JSON.parse(authorizationData);
+                    localStorage.setItem('authorizationData', authorizationData);
+                }
+            }
+
+            xhr.setRequestHeader('content-type', 'application/json');
+            xhr.send(JSON.stringify(userLoginInfo));
+
+        }
+
+        getDataBtnElement.onclick = function () {
+            let xhr = new XMLHttpRequest();
+
+            xhr.open('get', '/mySecret', true);
+
+            xhr.onload = function () {
+                contentElement.innerHTML = xhr.responseText;
+            }
+
+            // xhr.setRequestHeader('Authorization', authorizationData);
+            let auth = localStorage.getItem('authorizationData');
+            if (auth) {
+                xhr.setRequestHeader('Authorization', 'Bearer ' + auth);
+            }
+            xhr.send();
+        }
+    </script>
+
+</body>
+
+</html>

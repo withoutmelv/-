@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font: 13px Helvetica, Arial; }
+        form { background: #000; padding: 3px; position: fixed; bottom: 0; width: 100%; }
+        form input { border: 0; padding: 10px; width: 80%; margin-right: 0.5%; }
+        form button { width: 9%; background: rgb(130, 224, 255); border: none; padding: 10px; }
+        #messages { list-style-type: none; margin: 0; padding: 0; }
+        #messages li { padding: 5px 10px; }
+        #messages li:nth-child(odd) { background: #eee; }
+      </style>
+</head>
+<body>
+    <ul id="messages"></ul>
+    <form action="">
+        <button>Login</button>
+        <input id="m" autocomplete="off" />
+        <button>Send</button>
+    </form>
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+        let btnElements = document.querySelectorAll('button');
+        let mElement = document.querySelector('#m');
+        let messagesElement = document.querySelector('#messages');
+        let socket;
+
+        document.forms[0].onsubmit=function(e){
+            e.preventDefault();
+        }
+
+        btnElements[0].onclick=function(){
+            socket=io();
+
+            socket.on('connect',()=>{
+                btnElements[0].innerHTML=socket.id;
+
+            });
+
+            socket.on('chat',data=>{
+                let li = document.createElement('li');
+                li.innerHTML = `
+                    <b>${data.time}</b>
+                    <strong>${data.id}</strong>
+                    <span>${data.message}</span>
+                `;
+                
+                messagesElement.appendChild(li);
+            })
+        }
+
+        btnElements[1].onclick=function(){
+            if(mElement.value!==''){
+                socket.emit('message',{
+                    message:mElement.value
+                });
+
+                mElement.value='';
+            }
+        }
+    </script>
+    
+</body>
+</html>

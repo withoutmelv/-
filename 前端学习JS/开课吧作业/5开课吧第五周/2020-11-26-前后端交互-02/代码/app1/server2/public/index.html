@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>我是 Server2 的 index.html</h1>
+
+    <img src="https://img.kaikeba.com/70350130700202jusm.png" alt="">
+
+    <hr />
+
+    <button>请求 server2 的 /data1</button>
+    <button>请求 server1 的 /data1</button>
+    <button>请求 server1 的 /data2 - 非简单请求</button>
+
+    <script>
+        let btnElements = document.querySelectorAll('button');
+
+        btnElements[0].onclick = function () {
+
+            let xhr = new XMLHttpRequest();
+
+            xhr.open('get', '/data1', true);
+
+            xhr.onload = function () {
+                console.log(this.responseText);
+            }
+
+            xhr.send();
+        }
+
+        btnElements[1].onclick = function () {
+
+            let xhr = new XMLHttpRequest();
+
+            xhr.open('get', 'http://localhost:8888/data1', true);
+
+            xhr.onload = function () {
+                console.log(this.responseText);
+            }
+
+            xhr.send();
+        }
+
+        btnElements[2].onclick = function () {
+
+            let xhr = new XMLHttpRequest();
+
+            xhr.open('post', 'http://localhost:8888/data2', true);
+
+            xhr.onload = function () {
+                console.log(this.responseText);
+            }
+
+            // xhr.setRequestHeader('content-type', 'application/x-www-form-urlencoded');
+            // xhr.send('a=1&b=2');
+
+            xhr.setRequestHeader('content-type', 'application/json');
+            xhr.send('{"a": 1, "b": 2}');
+        }
+    </script>
+</body>
+
+</html>
